@@ -8,10 +8,13 @@ def lee_entrenos(ruta_fichero):
         next(lector)
         registros=[]
         for tipo, fechahora, ubicacion, duracion, calorias, distancia, frecuencia, compartido in lector:
-            fechahora= datetime.strptime(fechahora, "%d/%m/%Y %H:%M")
             duracion=int(duracion)
             calorias=int(calorias)
             distancia=float(distancia)
+            if compartido=='S':
+                compartido=True
+            else:
+                compartido=False
             frecuencia=int(frecuencia)
             tupla=(tipo, fechahora, ubicacion, duracion, calorias, distancia, frecuencia, compartido)
             registros.append(tupla)
